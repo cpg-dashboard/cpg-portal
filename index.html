@@ -92,12 +92,12 @@
     </div>
 
     <script>
-        // CẤU HÌNH XÁC THỰC MICROSOFT ENTRA ID ĐÃ DÁN ID CHÍNH XÁC
+        // CẤU HÌNH XÁC THỰC ENTRA ID CHUẨN XÁC VỚI APP MỚI
         const msalConfig = {
             auth: {
-                clientId: "e527d24f-6418-4c5e-ab25-8a79f6e1bb95",
+                clientId: "472c67bd-6bfb-4ebe-96cc-f77d8ceda8ce",
                 authority: "https://login.microsoftonline.com/7a69309d-b4fc-454f-a903-873fff81d501",
-                redirectUri: window.location.origin + window.location.pathname
+                redirectUri: "https://chauhoang0911-sudo.github.io/cpg-portal/"
             },
             cache: {
                 cacheLocation: "sessionStorage",
@@ -118,7 +118,8 @@
         async function signIn() {
             try {
                 const loginResponse = await msalInstance.loginPopup({
-                    scopes: ["User.Read"]
+                    scopes: ["User.Read"],
+                    prompt: "select_account"
                 });
                 showPortal(loginResponse.account);
             } catch (err) {
