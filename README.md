@@ -1,1 +1,1 @@
-# cpg-portal
+# cpg-dashboard
