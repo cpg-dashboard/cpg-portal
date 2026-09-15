@@ -35,11 +35,43 @@
         .brand { padding: 18px 20px; font-size: 16px; font-weight: bold; color: #ffffff; border-bottom: 1px solid #2d3748; }
         .brand span { color: #f59e0b; }
         .user-info { padding: 12px 20px; font-size: 12px; color: #94a3b8; border-bottom: 1px solid #2d3748; word-break: break-all; }
-        .nav-list { list-style: none; padding: 15px 0; flex: 1; overflow-y: auto; }
-        .nav-header { font-size: 11px; text-transform: uppercase; padding: 8px 20px; color: #64748b; font-weight: 600; letter-spacing: 0.5px; }
-        .nav-item { display: flex; align-items: center; padding: 12px 20px; color: #cbd5e1; cursor: pointer; font-size: 14px; transition: 0.2s; border-left: 3px solid transparent; }
-        .nav-item:hover { background-color: #2b3140; color: #ffffff; }
-        .nav-item.active { background-color: #2b3140; color: #ffffff; border-left-color: #f59e0b; font-weight: 600; }
+        .nav-list { list-style: none; padding: 10px 0; flex: 1; overflow-y: auto; }
+        
+        /* Tiêu đề nhóm to và nổi bật */
+        .nav-header { 
+            font-size: 14px; 
+            text-transform: uppercase; 
+            padding: 16px 20px 8px 20px; 
+            color: #f59e0b; 
+            font-weight: 700; 
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 4 mục con nhỏ gọn */
+        .nav-item { 
+            display: flex; 
+            align-items: center; 
+            padding: 9px 20px 9px 30px; 
+            color: #94a3b8; 
+            cursor: pointer; 
+            font-size: 12.5px; 
+            transition: 0.2s; 
+            border-left: 3px solid transparent; 
+        }
+        .nav-item:hover { 
+            background-color: #2b3140; 
+            color: #ffffff; 
+        }
+        .nav-item.active { 
+            background-color: #242a38; 
+            color: #ffffff; 
+            border-left-color: #f59e0b; 
+            font-weight: 600; 
+        }
+
         .btn-logout { padding: 14px 20px; font-size: 13px; color: #ef4444; cursor: pointer; border-top: 1px solid #2d3748; background: transparent; border: none; text-align: left; }
         .btn-logout:hover { background-color: #2b3140; }
 
@@ -69,18 +101,18 @@
             <div class="brand">CPG <span>DASHBOARD</span></div>
             <div class="user-info" id="user-display">Đang xác thực...</div>
             <ul class="nav-list">
-                <li class="nav-header">HR DASHBOARD</li>
+                <li class="nav-header">📊 HR DASHBOARD</li>
                 <li class="nav-item active" onclick="switchTab(this, 'CPG HR - Welcome Screen', 'https://app.powerbi.com/view?r=eyJrIjoiNzkwYWU4NzctOWUxNi00NTU5LTk2ODgtMzJhZTJlYmExOTk4IiwidCI6IjdhNjkzMDlkLWI0ZmMtNDU0Zi1hOTAzLTg3M2ZmZjgxZDUwMSIsImMiOjEwfQ%3D%3D&pageName=636eca3c30b805a75057')">
                     🏠 Welcome Screen
                 </li>
-                <li class="nav-item" onclick="switchTab(this, 'HR - Human Resource Management', 'https://app.powerbi.com/view?r=eyJrIjoiNzkwYWU4NzctOWUxNi00NTU5LTk2ODgtMzJhZTJlYmExOTk4IiwidCI6IjdhNjkzMDlkLWI0ZmMtNDU0Zi1hOTAzLTg3M2ZmZjgxZDUwMSIsImMiOjEwfQ%3D%3D&pageName=ReportSection')">
-                    👥 HR (Human Resource)
+                <li class="nav-item" onclick="switchTab(this, 'HR - Human Resource Management', 'https://app.powerbi.com/view?r=eyJrIjoiNzkwYWU4NzctOWUxNi00NTU5LTk2ODgtMzJhZTJlYmExOTk4IiwidCI6IjdhNjkzMDlkLWI0ZmMtNDU0Zi1hOTAzLTg3M2ZmZjgxZDUwMSIsImMiOjEwfQ%3D%3D&pageName=355120d0007750097620')">
+                    👥 HR
                 </li>
-                <li class="nav-item" onclick="switchTab(this, 'PL - Project License', 'https://app.powerbi.com/view?r=eyJrIjoiNzkwYWU4NzctOWUxNi00NTU5LTk2ODgtMzJhZTJlYmExOTk4IiwidCI6IjdhNjkzMDlkLWI0ZmMtNDU0Zi1hOTAzLTg3M2ZmZjgxZDUwMSIsImMiOjEwfQ%3D%3D&pageName=ReportSection1')">
-                    📜 PL (Project License)
+                <li class="nav-item" onclick="switchTab(this, 'PL - Project License', 'https://app.powerbi.com/view?r=eyJrIjoiNzkwYWU4NzctOWUxNi00NTU5LTk2ODgtMzJhZTJlYmExOTk4IiwidCI6IjdhNjkzMDlkLWI0ZmMtNDU0Zi1hOTAzLTg3M2ZmZjgxZDUwMSIsImMiOjEwfQ%3D%3D&pageName=76c060f02db1390acbb9')">
+                    📜 PL
                 </li>
-                <li class="nav-item" onclick="switchTab(this, 'RT - Recruitment Tracking', 'https://app.powerbi.com/view?r=eyJrIjoiNzkwYWU4NzctOWUxNi00NTU5LTk2ODgtMzJhZTJlYmExOTk4IiwidCI6IjdhNjkzMDlkLWI0ZmMtNDU0Zi1hOTAzLTg3M2ZmZjgxZDUwMSIsImMiOjEwfQ%3D%3D&pageName=ReportSection2')">
-                    🎯 RT (Recruitment Tracking)
+                <li class="nav-item" onclick="switchTab(this, 'RT - Recruitment Tracking', 'https://app.powerbi.com/view?r=eyJrIjoiNzkwYWU4NzctOWUxNi00NTU5LTk2ODgtMzJhZTJlYmExOTk4IiwidCI6IjdhNjkzMDlkLWI0ZmMtNDU0Zi1hOTAzLTg3M2ZmZjgxZDUwMSIsImMiOjEwfQ%3D%3D&pageName=3177dd53baa8eb6e251b')">
+                    🎯 RT
                 </li>
             </ul>
             <button class="btn-logout" onclick="signOut()">🚪 Đăng xuất</button>
