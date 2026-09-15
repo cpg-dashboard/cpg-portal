@@ -1,152 +1,19 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPG Dashboard</title>
-    <!-- Thư viện Microsoft Authentication Library (MSAL) -->
-    <script src="https://alcdn.msauth.net/browser/2.38.0/js/msal-browser.min.js"></script>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { display: flex; height: 100vh; background-color: #12151c; color: #cbd5e1; overflow: hidden; }
-
-        /* Màn hình khóa chờ xác thực */
-        #login-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: #12151c; z-index: 9999;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-        }
-        .login-box {
-            background-color: #1c202a; padding: 40px; border-radius: 8px;
-            border: 1px solid #2d3748; text-align: center; max-width: 420px; width: 90%;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-        }
-        .btn-ms {
-            background-color: #0078d4; color: #ffffff; border: none;
-            padding: 12px 24px; font-size: 14px; font-weight: 600;
-            border-radius: 4px; cursor: pointer; margin-top: 20px; transition: 0.2s;
-            display: inline-flex; align-items: center; gap: 8px;
-        }
-        .btn-ms:hover { background-color: #106ebe; }
-
-        /* Giao diện Portal chính */
-        #portal-content { display: none; width: 100%; height: 100%; }
-        .sidebar { width: 260px; background-color: #1c202a; border-right: 1px solid #2d3748; display: flex; flex-direction: column; flex-shrink: 0; }
-        .brand { padding: 18px 20px; font-size: 16px; font-weight: bold; color: #ffffff; border-bottom: 1px solid #2d3748; }
-        .brand span { color: #f59e0b; }
-        .user-info { padding: 12px 20px; font-size: 12px; color: #94a3b8; border-bottom: 1px solid #2d3748; word-break: break-all; }
-        .nav-list { list-style: none; padding: 15px 0; flex: 1; overflow-y: auto; }
-        .nav-header { font-size: 11px; text-transform: uppercase; padding: 8px 20px; color: #64748b; font-weight: 600; }
-        .nav-item { display: flex; align-items: center; padding: 12px 20px; color: #cbd5e1; cursor: pointer; font-size: 14px; transition: 0.2s; border-left: 3px solid transparent; }
-        .nav-item:hover { background-color: #2b3140; color: #ffffff; }
-        .nav-item.active { background-color: #2b3140; color: #ffffff; border-left-color: #f59e0b; font-weight: 600; }
-        .btn-logout { padding: 14px 20px; font-size: 13px; color: #ef4444; cursor: pointer; border-top: 1px solid #2d3748; background: transparent; border: none; text-align: left; }
-        .btn-logout:hover { background-color: #2b3140; }
-
-        .main-content { flex: 1; display: flex; flex-direction: column; }
-        .topbar { height: 50px; background-color: #1c202a; border-bottom: 1px solid #2d3748; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; }
-        .iframe-box { flex: 1; position: relative; width: 100%; height: 100%; }
-        iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-    </style>
-</head>
-<body>
-
-    <!-- MÀN HÌNH KHÓA XÁC THỰC MICROSOFT 365 -->
-    <div id="login-overlay">
-        <div class="login-box">
-            <h2 style="color: #fff; margin-bottom: 10px;">CPG DASHBOARD</h2>
-            <p style="font-size: 13px; color: #94a3b8; line-height: 1.5;">Vui lòng đăng nhập bằng tài khoản Microsoft 365 tổ chức để mở hệ thống báo cáo.</p>
-            <button class="btn-ms" onclick="signIn()">
-                <span>🔑</span> Đăng nhập với Microsoft
-            </button>
-            <div id="auth-error" style="color: #ef4444; font-size: 12px; margin-top: 15px;"></div>
-        </div>
-    </div>
-
-    <!-- GIAO DIỆN BÁO CÁO (CHỈ HIỂN THỊ KHI ĐÃ ĐĂNG NHẬP) -->
-    <div id="portal-content">
-        <div class="sidebar">
-            <div class="brand">CPG <span>DASHBOARD</span></div>
-            <div class="user-info" id="user-display">Đang xác thực...</div>
-            <ul class="nav-list">
-                <li class="nav-header">Bộ phận vận hành</li>
-                <li class="nav-item active" onclick="switchTab(this, 'CPG Central Dashboard', 'https://app.powerbi.com/view?r=eyJrIjoiNzkwYWU4NzctOWUxNi00NTU5LTk2ODgtMzJhZTJlYmExOTk4IiwidCI6IjdhNjkzMDlkLWI0ZmMtNDU0Zi1hOTAzLTg3M2ZmZjgxZDUwMSIsImMiOjEwfQ%3D%3D&pageName=636eca3c30b805a75057')">
+<ul class="nav-list">
+                <li class="nav-header">HR DASHBOARD</li>
+                
+                <li class="nav-item active" onclick="switchTab(this, 'CPG HR - Welcome Screen', 'https://app.powerbi.com/view?r=eyJrIjoiNzkwYWU4NzctOWUxNi00NTU5LTk2ODgtMzJhZTJlYmExOTk4IiwidCI6IjdhNjkzMDlkLWI0ZmMtNDU0Zi1hOTAzLTg3M2ZmZjgxZDUwMSIsImMiOjEwfQ%3D%3D&pageName=636eca3c30b805a75057')">
                     🏠 Welcome Screen
                 </li>
+
+                <li class="nav-item" onclick="switchTab(this, 'HR - Human Resource Management', 'https://app.powerbi.com/view?r=eyJrIjoiNzkwYWU4NzctOWUxNi00NTU5LTk2ODgtMzJhZTJlYmExOTk4IiwidCI6IjdhNjkzMDlkLWI0ZmMtNDU0Zi1hOTAzLTg3M2ZmZjgxZDUwMSIsImMiOjEwfQ%3D%3D&pageName=PAGE_ID_CUA_TRANG_HR')">
+                    👥 HR (Human Resource)
+                </li>
+
+                <li class="nav-item" onclick="switchTab(this, 'PL - Project License', 'https://app.powerbi.com/view?r=eyJrIjoiNzkwYWU4NzctOWUxNi00NTU5LTk2ODgtMzJhZTJlYmExOTk4IiwidCI6IjdhNjkzMDlkLWI0ZmMtNDU0Zi1hOTAzLTg3M2ZmZjgxZDUwMSIsImMiOjEwfQ%3D%3D&pageName=PAGE_ID_CUA_TRANG_PL')">
+                    📜 PL (Project License)
+                </li>
+
+                <li class="nav-item" onclick="switchTab(this, 'RT - Recruitment Tracking', 'https://app.powerbi.com/view?r=eyJrIjoiNzkwYWU4NzctOWUxNi00NTU5LTk2ODgtMzJhZTJlYmExOTk4IiwidCI6IjdhNjkzMDlkLWI0ZmMtNDU0Zi1hOTAzLTg3M2ZmZjgxZDUwMSIsImMiOjEwfQ%3D%3D&pageName=PAGE_ID_CUA_TRANG_RT')">
+                    🎯 RT (Recruitment Tracking)
+                </li>
             </ul>
-            <button class="btn-logout" onclick="signOut()">🚪 Đăng xuất</button>
-        </div>
-
-        <div class="main-content">
-            <div class="topbar">
-                <span id="report-title" style="font-size: 15px; font-weight: 600; color: #fff;">CPG Central Dashboard</span>
-            </div>
-            <div class="iframe-box">
-                <iframe 
-                    id="main-frame" 
-                    src="https://app.powerbi.com/view?r=eyJrIjoiNzkwYWU4NzctOWUxNi00NTU5LTk2ODgtMzJhZTJlYmExOTk4IiwidCI6IjdhNjkzMDlkLWI0ZmMtNDU0Zi1hOTAzLTg3M2ZmZjgxZDUwMSIsImMiOjEwfQ%3D%3D&pageName=636eca3c30b805a75057" 
-                    allowFullScreen="true">
-                </iframe>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // CẤU HÌNH XÁC THỰC ENTRA ID
-        const msalConfig = {
-            auth: {
-                clientId: "472c67bd-6bfb-4ebe-96cc-f77d8ceda8ce",
-                authority: "https://login.microsoftonline.com/7a69309d-b4fc-454f-a903-873fff81d501",
-                redirectUri: window.location.origin + window.location.pathname
-            },
-            cache: {
-                cacheLocation: "sessionStorage",
-                storeAuthStateInCookie: false
-            }
-        };
-
-        const msalInstance = new msal.PublicClientApplication(msalConfig);
-
-        async function initAuth() {
-            await msalInstance.initialize();
-            const accounts = msalInstance.getAllAccounts();
-            if (accounts.length > 0) {
-                showPortal(accounts[0]);
-            }
-        }
-
-        async function signIn() {
-            try {
-                const loginResponse = await msalInstance.loginPopup({
-                    scopes: ["User.Read"],
-                    prompt: "select_account"
-                });
-                showPortal(loginResponse.account);
-            } catch (err) {
-                document.getElementById('auth-error').innerText = "Đăng nhập thất bại: " + err.message;
-            }
-        }
-
-        function signOut() {
-            msalInstance.logoutPopup().then(() => {
-                location.reload();
-            });
-        }
-
-        function showPortal(account) {
-            document.getElementById('login-overlay').style.display = 'none';
-            document.getElementById('portal-content').style.display = 'flex';
-            document.getElementById('user-display').innerText = `👤 ${account.name || account.username}`;
-        }
-
-        function switchTab(el, title, url) {
-            document.getElementById('report-title').innerText = title;
-            document.getElementById('main-frame').src = url;
-            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-            el.classList.add('active');
-        }
-
-        window.onload = initAuth;
-    </script>
-</body>
-</html>
