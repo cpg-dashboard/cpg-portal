@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPG Dashboard</title>
+    <title>CPGV Dashboard</title>
     <!-- Thư viện Microsoft Authentication Library (MSAL) -->
     <script src="https://alcdn.msauth.net/browser/2.38.0/js/msal-browser.min.js"></script>
     <style>
@@ -126,6 +126,21 @@
                 </li>
                 <li class="nav-item" onclick="switchTab(this, 'IT - Data Management', 'https://app.powerbi.com/view?r=eyJrIjoiYTJhZjdkY2ItNzMzZS00MGI3LWJlZDktY2Y1N2EyNGVlOGU4IiwidCI6IjdhNjkzMDlkLWI0ZmMtNDU0Zi1hOTAzLTg3M2ZmZjgxZDUwMSIsImMiOjEwfQ%3D%3D&pageName=1d98e0d7c908836adad9')">
                     💾 Data
+                </li>
+
+                <!-- NHÓM UTILIZATION DASHBOARD -->
+                <li class="nav-header">📈 UTILIZATION DASHBOARD</li>
+                <li class="nav-item" onclick="switchTab(this, 'Utilization - Welcome Screen', 'LINK_PUBLISH_TO_WEB_CUA_UTILIZATION&pageName=d5afb3450d75a53171ca')">
+                    🏠 Welcome
+                </li>
+                <li class="nav-item" onclick="switchTab(this, 'Utilization - FA-Uti-General', 'LINK_PUBLISH_TO_WEB_CUA_UTILIZATION&pageName=c35161d0801d66d0acbe')">
+                    📊 Page 2
+                </li>
+                <li class="nav-item" onclick="switchTab(this, 'Utilization - FA-Uti-Division 01', 'LINK_PUBLISH_TO_WEB_CUA_UTILIZATION&pageName=2bbd34f3408773230089')">
+                    📋 Page 3
+                </li>
+                <li class="nav-item" onclick="switchTab(this, 'Utilization - FA-Uti-Division 02', 'LINK_PUBLISH_TO_WEB_CUA_UTILIZATION&pageName=6a66b18853a851d1eb97')">
+                    📉 Page 4
                 </li>
             </ul>
             <button class="btn-logout" onclick="signOut()">🚪 Đăng xuất</button>
