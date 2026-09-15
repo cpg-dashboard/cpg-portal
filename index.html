@@ -39,18 +39,18 @@
         
         /* Tiêu đề nhóm to và nổi bật */
         .nav-header { 
-            font-size: 14px; 
+            font-size: 13px; 
             text-transform: uppercase; 
             padding: 16px 20px 8px 20px; 
             color: #f59e0b; 
             font-weight: 700; 
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        /* 4 mục con nhỏ gọn */
+        /* Các mục con nhỏ gọn */
         .nav-item { 
             display: flex; 
             align-items: center; 
@@ -101,6 +101,7 @@
             <div class="brand">CPG <span>DASHBOARD</span></div>
             <div class="user-info" id="user-display">Đang xác thực...</div>
             <ul class="nav-list">
+                <!-- NHÓM HR -->
                 <li class="nav-header">📊 HR DASHBOARD</li>
                 <li class="nav-item active" onclick="switchTab(this, 'CPG HR - Welcome Screen', 'https://app.powerbi.com/view?r=eyJrIjoiNzkwYWU4NzctOWUxNi00NTU5LTk2ODgtMzJhZTJlYmExOTk4IiwidCI6IjdhNjkzMDlkLWI0ZmMtNDU0Zi1hOTAzLTg3M2ZmZjgxZDUwMSIsImMiOjEwfQ%3D%3D&pageName=636eca3c30b805a75057')">
                     🏠 Welcome Screen
@@ -113,6 +114,12 @@
                 </li>
                 <li class="nav-item" onclick="switchTab(this, 'RT - Recruitment Tracking', 'https://app.powerbi.com/view?r=eyJrIjoiNzkwYWU4NzctOWUxNi00NTU5LTk2ODgtMzJhZTJlYmExOTk4IiwidCI6IjdhNjkzMDlkLWI0ZmMtNDU0Zi1hOTAzLTg3M2ZmZjgxZDUwMSIsImMiOjEwfQ%3D%3D&pageName=3177dd53baa8eb6e251b')">
                     🎯 RT
+                </li>
+
+                <!-- NHÓM IT -->
+                <li class="nav-header">💻 IT DASHBOARD</li>
+                <li class="nav-item" onclick="switchTab(this, 'CPGV Dashboard - IT Overview', 'https://app.powerbi.com/view?r=eyJrIjoiYTJhZjdkY2ItNzMzZS00MGI3LWJlZDktY2Y1N2EyNGVlOGU4IiwidCI6IjdhNjkzMDlkLWI0ZmMtNDU0Zi1hOTAzLTg3M2ZmZjgxZDUwMSIsImMiOjEwfQ%3D%3D&pageName=1aae0f6d2083e6005509')">
+                    🖥️ IT Management
                 </li>
             </ul>
             <button class="btn-logout" onclick="signOut()">🚪 Đăng xuất</button>
