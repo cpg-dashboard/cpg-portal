@@ -1,1 +1,1 @@
-# cpgv-dashboard
+# cpg-dashboard
